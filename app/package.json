@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "vite --host"
+  },
+  "dependencies": {
+    "vite": "^5.3.1"
+  }
+}

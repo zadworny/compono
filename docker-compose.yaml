@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  api:
+    image: php:5.6-apache
+    container_name: api
+    volumes:
+      - ./api:/var/www/html
+    ports:
+      - "8080:80"
+    environment:
+      SECRET_KEY: "12345"
+
+  app:
+    image: node:20.14.0-alpine
+    container_name: app
+    volumes:
+      - ./app:/app
+    working_dir: /app
+    command: sh start.sh
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
+  backend:
+    image: node:20.14.0-alpine
+    container_name: backend
+    volumes:
+      - ./backend:/app
+    working_dir: /app
+    command: node index.mjs
+    ports:
+      - "8081:8080"
+    environment:
+      SECRET_KEY: "12345"
