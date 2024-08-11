@@ -30,6 +30,4 @@ The OK response should be a list of candidates in an XML format. The endpoint re
 
 Implement the above logic in PHP, in the `api` service, in order to not expose the `SECRET_KEY` to the end user.
 
-Build the front end user interface of the application in the `app` service. A Vite setup for a Single Page Application has been provided for your convenience, with a proxy to the `api` service configured. Feel free to extend it with a JavaScript framework or libraries of your choice, or go vanilla.
-
 Please do not modify the `backend` service.
